@@ -1,0 +1,4 @@
+rootProject.name = 'ramler'
+
+include "ramler-core"
+include "ramler-jax-rs"

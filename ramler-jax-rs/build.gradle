@@ -1,0 +1,21 @@
+apply plugin: "java"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.projectlombok:lombok:1.16.2"
+    compile "javax.ws.rs:jsr311-api:1.1.1"
+    compile "org.slf4j:slf4j-api:1.7.12"
+
+    compile project(":ramler-core")
+
+    testCompile ("org.testng:testng:6.8.7") {
+        exclude module: "junit"
+    }
+    testCompile ("org.mockito:mockito-core:1.9.5") {
+        exclude module: "junit"
+    }
+}
