@@ -1,4 +1,4 @@
-package ninja.onewaysidewalks.ramler.core.visitors;
+package ninja.onewaysidewalks.ramler.core.visitors.interfaces;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

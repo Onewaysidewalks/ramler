@@ -4,20 +4,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 
+import java.util.Map;
+
 @Slf4j
 public class ConfigLoader {
 
-    public static final String RAMLER_CONFIG_SYSTEM_PROPERTY
+    public static final String RAMLER_CONFIG_OPTION
             = "ninja.onewaysidewalks.ramler.config";
 
-    public static RamlerConfig getRamlerConfigFromSystemProperty() {
-        String ramlerConfigJson = System.getProperty(RAMLER_CONFIG_SYSTEM_PROPERTY);
-
-        ObjectMapper objectMapper = new ObjectMapper();
+    public static RamlerConfig getRamlerConfigFromOptions(Map<String, String> options) {
+        log.info("Options: {}", options);
+        String ramlerConfigJson = options.get(RAMLER_CONFIG_OPTION);
 
         if (StringUtils.isBlank(ramlerConfigJson)) {
             return null;
         }
+
+        ObjectMapper objectMapper = new ObjectMapper();
 
         try {
             return objectMapper.readValue(ramlerConfigJson, RamlerConfig.class);

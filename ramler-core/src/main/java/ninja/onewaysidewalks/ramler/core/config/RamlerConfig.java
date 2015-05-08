@@ -3,7 +3,7 @@ package ninja.onewaysidewalks.ramler.core.config;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,7 +14,7 @@ public class RamlerConfig {
      * may not be available. If both are present, the union of the two sets (from annotation and from config)
      * will be used
      */
-    private Set<String> supportedAnnotationTypes;
+    private List<String> supportedAnnotationTypes;
 
 
     /**
@@ -22,5 +22,5 @@ public class RamlerConfig {
      * use something that is more specific, as it will speed up processing time
      * as there will be less to reflect over
      */
-    private String basePackageForReflection;
+    private List<String> basePackagesForReflection;
 }
